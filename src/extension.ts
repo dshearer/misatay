@@ -24,9 +24,9 @@ export function activate(context: vscode.ExtensionContext) {
 
 	// Wait for Beatrice to activate if not already active
 	if (!beatriceExtension.isActive) {
-		beatriceExtension.activate().then(() => {
+		Promise.resolve(beatriceExtension.activate()).then(() => {
 			console.log('Beatrice extension activated');
-		}).catch(err => {
+		}).catch((err: Error) => {
 			vscode.window.showErrorMessage(`Failed to activate Beatrice: ${err.message}`);
 		});
 	}
