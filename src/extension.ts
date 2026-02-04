@@ -6,9 +6,30 @@ import * as vscode from 'vscode';
 // Your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
 
-	// Use the console to output diagnostic information (console.log) and errors (console.error)
-	// This line of code will only be executed once when your extension is activated
-	console.log('Congratulations, your extension "smidja" is now active!');
+	// Verify Beatrice extension is installed
+	const beatriceExtension = vscode.extensions.getExtension('dshearer.beatrice');
+	if (!beatriceExtension) {
+		vscode.window.showErrorMessage(
+			'Smidja requires the Beatrice extension. Please install it from the marketplace.',
+			'Install Beatrice'
+		).then(selection => {
+			if (selection === 'Install Beatrice') {
+				vscode.commands.executeCommand('workbench.extensions.search', 'dshearer.beatrice');
+			}
+		});
+		return;
+	}
+
+	// Wait for Beatrice to activate if not already active
+	if (!beatriceExtension.isActive) {
+		beatriceExtension.activate().then(() => {
+			console.log('Beatrice extension activated');
+		}).catch(err => {
+			vscode.window.showErrorMessage(`Failed to activate Beatrice: ${err.message}`);
+		});
+	}
+
+	console.log('Smidja extension activated');
 
 	// The command has been defined in the package.json file
 	// Now provide the implementation of the command with registerCommand

@@ -11,6 +11,9 @@
   ],
   "activationEvents": [],
   "main": "./out/extension.js",
+  "extensionDependencies": [
+    "dshearer.beatrice"
+  ],
   "contributes": {
     "commands": [
       {

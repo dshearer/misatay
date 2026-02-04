@@ -3,13 +3,13 @@
 - [x] 1.1 Initialize VS Code extension project structure
 - [x] 1.2 Configure package.json with extension metadata
 - [x] 1.3 Set up TypeScript build configuration
-- [ ] 1.4 Add Beads as dependency/requirement in docs
+- [x] 1.4 Add Beads as dependency/requirement in docs
 
 ## 2. Beatrice Dependency
 
-- [ ] 2.1 Add Beatrice extension as extensionDependency in package.json
-- [ ] 2.2 Document Beatrice installation requirement in README
-- [ ] 2.3 Verify Beatrice tools are available when extension activates
+- [x] 2.1 Add Beatrice extension as extensionDependency in package.json
+- [x] 2.2 Document Beatrice installation requirement in README
+- [x] 2.3 Verify Beatrice tools are available when extension activates
 
 ## 3. Task Management Tools
 

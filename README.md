@@ -1,20 +1,27 @@
-# smidja README
+# Smidja
 
-This is the README for your extension "smidja". After writing up a brief description, we recommend including the following sections.
+Collaborative AI pair programming with GitHub Copilot. Stay in the loop while AI implements your tasks.
 
 ## Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
-
-For example if there is an image subfolder under your extension project workspace:
-
-\!\[feature X\]\(images/feature-x.png\)
-
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+- **Planning Dialogue**: Break projects into reviewable tasks collaboratively with AI
+- **Sequential Execution**: AI works through tasks one at a time, committing each separately
+- **Flexible Review**: Review tasks whenever convenient, request changes that append as new commits
+- **Persistent State**: Task tracking across VS Code sessions using pluggable backends
 
 ## Requirements
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+### Required Extensions
+
+- **GitHub Copilot**: Provides the AI agent and code generation capabilities
+- **Beatrice** (`dshearer.beatrice`): Provides file navigation tools for code review
+  - Install from VS Code Marketplace: [Beatrice](https://marketplace.visualstudio.com/items?itemName=dshearer.beatrice)
+
+### Required Tools
+
+- **Task Backend** (default: [Beads](https://beads.dev))
+  - Install Beads CLI: `brew install beads` (or via npm/go)
+  - Alternative backends: Linear, GitHub Issues, JIRA, etc.
 
 ## Extension Settings
 
