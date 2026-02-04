@@ -24,11 +24,11 @@
 
 ## 4. Agent Definition
 
-- [ ] 4.1 Create agents/smidja.agent.md with YAML frontmatter
-- [ ] 4.2 Declare built-in tools (edit, read, search, todo, shell)
-- [ ] 4.3 Declare Beatrice tools (beatrice_openFile, beatrice_highlightLines, beatrice_navigateToLine)
-- [ ] 4.4 Declare custom tools (dshearer.smidja/createTask, updateTask, listTasks, addDependency)
-- [ ] 4.5 Write bare-bones agent prompt covering planning, execution, and review phases
+- [x] 4.1 Create agents/smidja.agent.md with YAML frontmatter
+- [x] 4.2 Declare built-in tools (edit, read, search, todo, shell)
+- [x] 4.3 Declare Beatrice tools (beatrice_openFile, beatrice_highlightLines, beatrice_navigateToLine)
+- [x] 4.4 Declare custom tools (dshearer.smidja/createTask, updateTask, listTasks, addDependency)
+- [x] 4.5 Write bare-bones agent prompt covering planning, execution, and review phases
 
 ## 5. Planning Skill
 
