@@ -26,19 +26,19 @@ The agent SHALL determine which files were modified by a task using git log.
 - **THEN** agent runs `git log --grep="task-id" --name-only --format=""`
 
 ### Requirement: Agent uses navigation tools to show code
-The agent SHALL use beatrice_openFile, beatrice_highlightLines, and beatrice_navigateToLine to guide the user through changes.
+The agent SHALL use openFile, highlightLines, and navigateToLine tools to guide the user through changes.
 
 #### Scenario: Opening a file for review
 - **WHEN** agent shows a file that was modified
-- **THEN** agent calls beatrice_openFile with the file path
+- **THEN** agent calls dshearer.smidja/openFile with the file path
 
 #### Scenario: Highlighting relevant sections
 - **WHEN** agent wants to draw attention to specific code
-- **THEN** agent calls beatrice_highlightLines with appropriate line range
+- **THEN** agent calls dshearer.smidja/highlightLines with appropriate line range
 
 #### Scenario: Centering code in viewport
 - **WHEN** agent wants to ensure code is visible
-- **THEN** agent calls beatrice_navigateToLine to center it
+- **THEN** agent calls dshearer.smidja/navigateToLine to center it
 
 ### Requirement: Agent explains changes in chat
 The agent SHALL provide narrative explanation of what was done and why in the chat alongside the file navigation.

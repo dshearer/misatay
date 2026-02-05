@@ -6,33 +6,11 @@ import * as path from 'path';
 import { BeadsBackend } from './beadsBackend';
 import { registerTaskTools } from './taskTools';
 import { TaskStatusView } from './taskStatusView';
+import { registerNavigationTools } from './navigationTools';
 
 // This method is called when your extension is activated
 // Your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
-
-	// Verify Beatrice extension is installed
-	const beatriceExtension = vscode.extensions.getExtension('dshearer.beatrice');
-	if (!beatriceExtension) {
-		vscode.window.showErrorMessage(
-			'Smidja requires the Beatrice extension. Please install it from the marketplace.',
-			'Install Beatrice'
-		).then(selection => {
-			if (selection === 'Install Beatrice') {
-				vscode.commands.executeCommand('workbench.extensions.search', 'dshearer.beatrice');
-			}
-		});
-		return;
-	}
-
-	// Wait for Beatrice to activate if not already active
-	if (!beatriceExtension.isActive) {
-		Promise.resolve(beatriceExtension.activate()).then(() => {
-			console.log('Beatrice extension activated');
-		}).catch((err: Error) => {
-			vscode.window.showErrorMessage(`Failed to activate Beatrice: ${err.message}`);
-		});
-	}
 
 	// Initialize task backend (default: Beads)
 	const workspaceRoot = vscode.workspace.workspaceFolders?.[0]?.uri.fsPath;
@@ -51,6 +29,9 @@ export function activate(context: vscode.ExtensionContext) {
 
 	// Register task management tools
 	registerTaskTools(context, taskBackend);
+
+	// Register navigation tools
+	registerNavigationTools(context);
 
 	// Register Show Task Status command
 	const showTaskStatusCommand = vscode.commands.registerCommand('smidja.showTaskStatus', async () => {

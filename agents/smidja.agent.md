@@ -6,9 +6,9 @@ tools:
   - search
   - web
   - todo
-  - dshearer.beatrice/openFile
-  - dshearer.beatrice/highlightLines
-  - dshearer.beatrice/navigateToLine
+  - dshearer.smidja/openFile
+  - dshearer.smidja/highlightLines
+  - dshearer.smidja/navigateToLine
   - dshearer.smidja/createTask
   - dshearer.smidja/updateTask
   - dshearer.smidja/listTasks
@@ -54,10 +54,10 @@ When the user requests a review of a committed task:
 
 1. **Find the commit** - Use `git log --grep="task-id"` to locate the commit
 2. **Identify affected files** - Use `git show --name-only` or `git diff` to see what changed
-3. **Navigate for review** - Use Beatrice tools to guide the user through changes:
-   - `dshearer.beatrice/openFile` to open each file
-   - `dshearer.beatrice/highlightLines` to highlight changed sections
-   - `dshearer.beatrice/navigateToLine` to jump to specific locations
+3. **Navigate for review** - Use navigation tools to guide the user through changes:
+   - `dshearer.smidja/openFile` to open each file
+   - `dshearer.smidja/highlightLines` to highlight changed sections
+   - `dshearer.smidja/navigateToLine` to jump to specific locations
 4. **Handle feedback**:
    - **Approved**: Update task status to "reviewed" using `dshearer.smidja/updateTask`
    - **Changes requested**: Switch status to "in_progress", implement fixes, append new commit with same task ID, and finally switch status to "committed"
