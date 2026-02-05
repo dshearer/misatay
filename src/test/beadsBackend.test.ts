@@ -60,11 +60,6 @@ test('createTask can create with in_progress status', async () => {
 		assert.strictEqual(task.status, 'in_progress');
 	});
 
-test('createTask can create with blocked status', async () => {
-		const task = await backend.createTask('Blocked Task', 'Description', 'blocked');
-		assert.strictEqual(task.status, 'blocked');
-	});
-
 test('updateTask updates title', async () => {
 		const task = await backend.createTask('Original', 'Desc', 'ready');
 		const updated = await backend.updateTask(task.id, { title: 'Updated Title' });
@@ -78,20 +73,6 @@ test('updateTask updates status', async () => {
 		const updated = await backend.updateTask(task.id, { status: 'in_progress' });
 		
 		assert.strictEqual(updated.status, 'in_progress');
-	});
-
-test('updateTask can transition to blocked status', async () => {
-		const task = await backend.createTask('Task', 'Desc', 'in_progress');
-		const updated = await backend.updateTask(task.id, { status: 'blocked' });
-		
-		assert.strictEqual(updated.status, 'blocked');
-	});
-
-test('updateTask can transition from blocked to ready', async () => {
-		const task = await backend.createTask('Task', 'Desc', 'blocked');
-		const updated = await backend.updateTask(task.id, { status: 'ready' });
-		
-		assert.strictEqual(updated.status, 'ready');
 	});
 
 test('updateTask updates multiple fields', async () => {
@@ -153,16 +134,6 @@ test('listTasks filters by status', async () => {
 		const tasks = await backend.listTasks({ status: 'ready' });
 		assert.strictEqual(tasks.length, 2);
 		assert.ok(tasks.every(t => t.status === 'ready'));
-	});
-
-test('listTasks filters blocked status correctly', async () => {
-		await backend.createTask('Task 1', 'Desc 1', 'ready');
-		await backend.createTask('Task 2', 'Desc 2', 'blocked');
-		await backend.createTask('Task 3', 'Desc 3', 'blocked');
-		
-		const tasks = await backend.listTasks({ status: 'blocked' });
-		assert.strictEqual(tasks.length, 2);
-		assert.ok(tasks.every(t => t.status === 'blocked'));
 	});
 
 test('listTasks returns empty array when no tasks', async () => {

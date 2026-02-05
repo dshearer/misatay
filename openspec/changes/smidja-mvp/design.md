@@ -291,12 +291,6 @@ skills based on the user's request.
 │ in_progress │ ← updateTask(id, {status: "in_progress"})
 └──────┬──────┘
        │
-       ├──→ ┌─────────┐
-       │    │ blocked │ ← updateTask(id, {status: "blocked"}) [waiting on dependency]
-       │    └────┬────┘
-       │         │
-       │         └──→ (unblocked) ──→ ready or in_progress
-       │
        ↓
 ┌───────────┐
 │ committed │ ← updateTask(id, {status: "committed"})

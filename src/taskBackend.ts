@@ -3,7 +3,7 @@ import * as vscode from 'vscode';
 /**
  * Task status values (Smidja workflow statuses)
  */
-export type TaskStatus = 'ready' | 'in_progress' | 'blocked' | 'committed' | 'reviewed';
+export type TaskStatus = 'ready' | 'in_progress' | 'committed' | 'reviewed';
 
 /**
  * Task object returned by backend

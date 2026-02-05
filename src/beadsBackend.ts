@@ -24,8 +24,7 @@ export class BeadsBackend implements TaskBackend {
 				return { status: 'open' };
 			case 'in_progress':
 				return { status: 'in_progress' };
-			case 'blocked':
-				return { status: 'blocked' };
+
 			case 'committed':
 				return { status: 'closed', label: 'committed' };
 			case 'reviewed':
@@ -49,10 +48,7 @@ export class BeadsBackend implements TaskBackend {
 		if (beadsStatus === 'in_progress') {
 			return 'in_progress';
 		}
-		if (beadsStatus === 'blocked') {
-			return 'blocked';
-		}
-		// open, deferred map to ready
+		// open, deferred, blocked map to ready
 		return 'ready';
 	}
 
