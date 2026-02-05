@@ -22,10 +22,10 @@ The core intelligence lives in a Copilot agent definition (`.github/agents/smidj
    │   - shell (git commands)
    │
    └─ Uses custom tools:
-       Navigation (from Beatrice extension):
-       - beatrice_openFile
-       - beatrice_highlightLines
-       - beatrice_navigateToLine
+       Navigation (Smidja-specific):
+       - dshearer.smidja/openFile
+       - dshearer.smidja/highlightLines
+       - dshearer.smidja/navigateToLine
        
        Task Management (Smidja-specific):
        - dshearer.smidja/createTask
@@ -48,7 +48,10 @@ The core intelligence lives in a Copilot agent definition (`.github/agents/smidj
        - listTasks(status?, branch?)
        - addDependency(childId, parentId)
    
-   Navigation tools provided by Beatrice extension (required dependency)
+   Navigation tools for code review:
+       - openFile(filePath, line?)
+       - highlightLines(startLine, endLine)
+       - navigateToLine(line)
 
 4. Task Backend (pluggable)
    - Default: Beads (.beads/issues.jsonl)
@@ -62,9 +65,8 @@ The core intelligence lives in a Copilot agent definition (`.github/agents/smidj
 Before using Smidja, users must:
 
 1. Install the Smidja extension from VS Code marketplace
-2. Install Beatrice extension (dependency, auto-prompted if missing)
-3. Install task backend (e.g., `brew install beads` for default)
-4. Run command: "Smidja: Install Agent"
+2. Install task backend (e.g., `brew install beads` for default)
+3. Run command: "Smidja: Install Agent"
    - Copies agent definition to `.github/agents/smidja.agent.md`
    - Copies skill files to `.github/skills/`
    - One command installs everything needed
@@ -152,11 +154,10 @@ Result: Tasks marked reviewed, fixup commits appended
 **Rationale**:
 - Copilot provides LLM intelligence, code understanding, and edit capabilities
 - Agent can use existing Copilot tools (edit, read, search)
-- Extension only needs to provide task management tools
-- Navigation tools provided by Beatrice extension
+- Extension provides task management and navigation tools
 - Simpler than building custom chat UI or LLM integration
 
-**Tradeoff**: Requires GitHub Copilot subscription and Beatrice extension
+**Tradeoff**: Requires GitHub Copilot subscription
 
 ### Decision 2: Task Management Abstraction
 

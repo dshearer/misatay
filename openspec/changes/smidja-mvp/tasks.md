@@ -5,39 +5,32 @@
 - [x] 1.3 Set up TypeScript build configuration
 - [x] 1.4 Add Beads as dependency/requirement in docs
 
-## 2. Beatrice Dependency
+## 2. Task Management Tools
 
-- [x] 2.1 Add Beatrice extension as extensionDependency in package.json
-- [x] 2.2 Document Beatrice installation requirement in README
-- [x] 2.3 Verify Beatrice tools are available when extension activates
+- [x] 2.1 Implement createTask tool (dshearer.smidja/createTask)
+- [x] 2.2 Implement updateTask tool (dshearer.smidja/updateTask)
+- [x] 2.3 Implement listTasks tool (dshearer.smidja/listTasks)
+- [x] 2.4 Implement addDependency tool (dshearer.smidja/addDependency)
+- [x] 2.5 Create task backend adapter interface
+- [x] 2.6 Implement Beads CLI adapter (default backend)
+- [x] 2.7 Register all task tools in extension activation
+- [x] 2.8 Add tool tests
 
-## 3. Task Management Tools
+## 3. Agent Definition
 
-- [x] 3.1 Implement createTask tool (dshearer.smidja/createTask)
-- [x] 3.2 Implement updateTask tool (dshearer.smidja/updateTask)
-- [x] 3.3 Implement listTasks tool (dshearer.smidja/listTasks)
-- [x] 3.4 Implement addDependency tool (dshearer.smidja/addDependency)
-- [x] 3.5 Create task backend adapter interface
-- [x] 3.6 Implement Beads CLI adapter (default backend)
-- [x] 3.7 Register all task tools in extension activation
-- [x] 3.8 Add tool tests
+- [x] 3.1 Create agents/smidja.agent.md with YAML frontmatter
+- [x] 3.2 Declare built-in tools (edit, read, search, todo, shell)
+- [x] 3.3 Declare custom tools (dshearer.smidja/createTask, updateTask, listTasks, addDependency, openFile, highlightLines, navigateToLine)
+- [x] 3.4 Write bare-bones agent prompt covering planning, execution, and review phases
 
-## 4. Agent Definition
+## 4. Initial Installation Command (Agent Only)
 
-- [x] 4.1 Create agents/smidja.agent.md with YAML frontmatter
-- [x] 4.2 Declare built-in tools (edit, read, search, todo, shell)
-- [x] 4.3 Declare Beatrice tools (beatrice_openFile, beatrice_highlightLines, beatrice_navigateToLine)
-- [x] 4.4 Declare custom tools (dshearer.smidja/createTask, updateTask, listTasks, addDependency)
-- [x] 4.5 Write bare-bones agent prompt covering planning, execution, and review phases
+- [x] 4.1 Create VS Code command "Smidja: Install Agent"
+- [x] 4.2 Command copies agents/smidja.agent.md to .github/agents/smidja.agent.md
+- [x] 4.3 Command creates .github/agents/ directory if needed
+- [x] 4.4 Command shows success message with instructions to test
 
-## 5. Initial Installation Command (Agent Only)
-
-- [x] 5.1 Create VS Code command "Smidja: Install Agent"
-- [x] 5.2 Command copies agents/smidja.agent.md to .github/agents/smidja.agent.md
-- [x] 5.3 Command creates .github/agents/ directory if needed
-- [x] 5.4 Command shows success message with instructions to test
-
-## 6. Task Status View
+## 5. Task Status View
 
 - [x] 6.1 Create VS Code command "Smidja: Show Task Status"
 - [x] 6.2 Create webview panel with HTML/CSS/JS for modern UI
@@ -79,13 +72,13 @@
 - [x] 9.1 Create skills/review/SKILL.md
 - [x] 9.2 Add instructions for finding commits (git log --grep)
 - [x] 9.3 Add instructions for finding affected files
-- [x] 9.4 Define file-by-file review flow using Beatrice navigation tools
+- [x] 8.4 Define file-by-file review flow using navigation tools
 - [x] 9.5 Add approval/rejection handling (status updates)
 - [x] 9.6 Add fix commit instructions (append, don't rebase)
 
 ## 10. Installation Command (Full)
 
-- [x] 10.1 Extend "Smidja: Install Agent" command to copy skill files
-- [x] 10.2 Command copies all skill files to .github/skills/
-- [x] 10.3 Command creates full directory structure if needed
-- [x] 10.4 Command shows success message with next steps
+- [x] 9.1 Extend "Smidja: Install Agent" command to copy skill files
+- [x] 9.2 Command copies all skill files to .github/skills/
+- [x] 9.3 Command creates full directory structure if needed
+- [x] 9.4 Command shows success message with next steps

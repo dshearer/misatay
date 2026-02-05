@@ -33,8 +33,6 @@ Because: You've already reviewed the code! You were there from the begining!
 ### Required Extensions
 
 - **GitHub Copilot**: Provides the AI agent and code generation capabilities
-- **Beatrice** (`dshearer.beatrice`): Provides file navigation tools for code review
-  - Install from VS Code Marketplace: [Beatrice](https://marketplace.visualstudio.com/items?itemName=dshearer.beatrice)
 
 ### Required Tools
 

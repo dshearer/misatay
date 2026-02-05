@@ -194,8 +194,6 @@ Always use the Smidja navigation tools:
 - `dshearer.smidja/highlightLines` - Highlights a range of lines
 - `dshearer.smidja/navigateToLine` - Centers a line in the viewport
 
-**Don't** try to use Beatrice tools directly or other file opening mechanisms.
-
 ### Explain, Don't Just Show
 
 - Opening files alone isn't helpful
