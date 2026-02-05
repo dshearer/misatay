@@ -60,11 +60,11 @@
 
 ## 7. Planning Skill
 
-- [ ] 7.1 Create skills/planning/SKILL.md
-- [ ] 7.2 Define planning dialogue instructions
-- [ ] 7.3 Add task breakdown guidance
-- [ ] 7.4 Add task creation instructions using createTask/addDependency tools
-- [ ] 7.5 Define planning completion criteria
+- [x] 7.1 Create skills/planning/SKILL.md
+- [x] 7.2 Define planning dialogue instructions
+- [x] 7.3 Add task breakdown guidance
+- [x] 7.4 Add task creation instructions using createTask/addDependency tools
+- [x] 7.5 Define planning completion criteria
 
 ## 8. Execution Skill
 
