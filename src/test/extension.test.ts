@@ -6,10 +6,22 @@ import * as vscode from 'vscode';
 // import * as myExtension from '../../extension';
 
 suite('Extension Test Suite', () => {
-	vscode.window.showInformationMessage('Start all tests.');
+	vscode.window.showInformationMessage('Running Smidja tests...');
 
-	test('Sample test', () => {
-		assert.strictEqual(-1, [1, 2, 3].indexOf(5));
-		assert.strictEqual(-1, [1, 2, 3].indexOf(0));
+	test('Extension should be present', () => {
+		assert.ok(vscode.extensions.getExtension('dshearer.smidja'));
+	});
+
+	test('Extension should activate', async () => {
+		const ext = vscode.extensions.getExtension('dshearer.smidja');
+		assert.ok(ext);
+		await ext.activate();
+		assert.strictEqual(ext.isActive, true);
+	});
+
+	test('At least one Smidja tool is registered', () => {
+		const tools = vscode.lm.tools;
+		const smidjaTools = tools.filter(t => t.name.startsWith('smidja_'));
+		assert.ok(smidjaTools.length > 0, 'At least one smidja_ tool should be registered');
 	});
 });

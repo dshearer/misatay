@@ -1,4 +1,4 @@
-# Smidja
+# Smidja - AI Agent Tool that Keeps You in the Loop
 
 Collaborative AI pair programming with GitHub Copilot. Stay in the loop while AI implements your tasks.
 

@@ -45,8 +45,6 @@ export function activate(context: vscode.ExtensionContext) {
 	// Register task management tools
 	registerTaskTools(context, taskBackend);
 
-	console.log('Smidja extension activated');
-
 	// Register Install Agent command
 	const installAgentCommand = vscode.commands.registerCommand('smidja.installAgent', async () => {
 		if (!workspaceRoot) {
@@ -54,35 +52,31 @@ export function activate(context: vscode.ExtensionContext) {
 			return;
 		}
 
-		try {
-			// Create .github/agents/ directory if it doesn't exist
-			const githubAgentsDir = path.join(workspaceRoot, '.github', 'agents');
-			if (!fs.existsSync(githubAgentsDir)) {
-				fs.mkdirSync(githubAgentsDir, { recursive: true });
-			}
-
-			// Copy agents/smidja.agent.md to .github/agents/smidja.agent.md
-			const sourceFile = path.join(context.extensionPath, 'agents', 'smidja.agent.md');
-			const targetFile = path.join(githubAgentsDir, 'smidja.agent.md');
-			
-			if (!fs.existsSync(sourceFile)) {
-				vscode.window.showErrorMessage('Agent file not found in extension. Please reinstall Smidja.');
-				return;
-			}
-
-			fs.copyFileSync(sourceFile, targetFile);
-
-			vscode.window.showInformationMessage(
-				'Smidja agent installed successfully! Reload VS Code to use the @smidja agent in GitHub Copilot chat.',
-				'Reload Window'
-			).then(selection => {
-				if (selection === 'Reload Window') {
-					vscode.commands.executeCommand('workbench.action.reloadWindow');
-				}
-			});
-		} catch (error: any) {
-			vscode.window.showErrorMessage(`Failed to install agent: ${error.message}`);
+		// Create .github/agents/ directory if it doesn't exist
+		const githubAgentsDir = path.join(workspaceRoot, '.github', 'agents');
+		if (!fs.existsSync(githubAgentsDir)) {
+			fs.mkdirSync(githubAgentsDir, { recursive: true });
 		}
+
+		// Copy agents/smidja.agent.md to .github/agents/smidja.agent.md
+		const sourceFile = path.join(context.extensionPath, 'agents', 'smidja.agent.md');
+		const targetFile = path.join(githubAgentsDir, 'smidja.agent.md');
+		
+		if (!fs.existsSync(sourceFile)) {
+			vscode.window.showErrorMessage('Agent file not found in extension. Please reinstall Smidja.');
+			return;
+		}
+
+		fs.copyFileSync(sourceFile, targetFile);
+
+		vscode.window.showInformationMessage(
+			'Smidja agent installed successfully! Reload VS Code to use the @smidja agent in GitHub Copilot chat.',
+			'Reload Window'
+		).then(selection => {
+			if (selection === 'Reload Window') {
+				vscode.commands.executeCommand('workbench.action.reloadWindow');
+			}
+		});
 	});
 
 	context.subscriptions.push(installAgentCommand);

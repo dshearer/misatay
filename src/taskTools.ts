@@ -115,4 +115,12 @@ export function registerTaskTools(context: vscode.ExtensionContext, backend: Tas
 	});
 
 	context.subscriptions.push(createTaskTool, updateTaskTool, listTasksTool, addDependencyTool);
+	console.log('Smidja: Registered 4 task management tools');
+	
+	// List all available tools to verify registration
+	setTimeout(() => {
+		const toolNames = vscode.lm.tools.map(t => t.name);
+		console.log('All available LM tools:', toolNames);
+		console.log('Smidja tools found:', toolNames.filter(n => n.startsWith('smidja_')));
+	}, 1000);
 }

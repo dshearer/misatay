@@ -10,7 +10,9 @@
   "categories": [
     "Other"
   ],
-  "activationEvents": [],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
   "main": "./out/extension.js",
   "extensionDependencies": [
     "dshearer.beatrice"
@@ -26,8 +28,10 @@
       {
         "name": "smidja_createTask",
         "displayName": "Create Task",
+        "toolReferenceName": "createTask",
         "modelDescription": "Creates a new task with a title, description, and optional status. Returns the task ID.",
         "userDescription": "Create a task in the task backend",
+        "canBeReferencedInPrompt": true,
         "inputSchema": {
           "type": "object",
           "properties": {
@@ -59,8 +63,10 @@
       {
         "name": "smidja_updateTask",
         "displayName": "Update Task",
+        "toolReferenceName": "updateTask",
         "modelDescription": "Updates fields of an existing task by ID. Can update title, description, status, or branch.",
         "userDescription": "Update an existing task",
+        "canBeReferencedInPrompt": true,
         "inputSchema": {
           "type": "object",
           "properties": {
@@ -105,8 +111,10 @@
       {
         "name": "smidja_listTasks",
         "displayName": "List Tasks",
+        "toolReferenceName": "listTasks",
         "modelDescription": "Lists all tasks, optionally filtered by status or branch. Returns array of tasks.",
         "userDescription": "List tasks from the task backend",
+        "canBeReferencedInPrompt": true,
         "inputSchema": {
           "type": "object",
           "properties": {
@@ -130,8 +138,10 @@
       {
         "name": "smidja_addDependency",
         "displayName": "Add Task Dependency",
+        "toolReferenceName": "addDependency",
         "modelDescription": "Records that childId task depends on parentId task. Child cannot start until parent is committed.",
         "userDescription": "Add a dependency between tasks",
+        "canBeReferencedInPrompt": true,
         "inputSchema": {
           "type": "object",
           "properties": {
