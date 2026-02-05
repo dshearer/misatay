@@ -37,7 +37,6 @@ The core intelligence lives in a Copilot agent definition (`.github/agents/smidj
    ├─ planning/SKILL.md      - Planning dialogue workflow
    ├─ execution/SKILL.md     - Task implementation workflow
    ├─ review/SKILL.md        - Code review workflow
-   └─ git-ops/SKILL.md       - Git operations workflow
    
    Skills are loaded on-demand by Copilot based on description matching
 
@@ -71,7 +70,7 @@ Before using Smidja, users must:
    - Copies skill files to `.github/skills/`
    - One command installs everything needed
 
-After installation, chat with `@smidja` to start planning tasks.
+After installation, chat with the Smidja custom agent.
 
 ## Workflow Phases
 
