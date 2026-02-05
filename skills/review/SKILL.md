@@ -140,14 +140,15 @@ If user requests modifications or points out issues:
    - Address the user's feedback
    - Make focused changes only
 
-3. **Commit the fix** with a descriptive message:
+3. **Mark task as committed** using `dshearer.smidja/updateTask`:
+   - taskId: the task ID
+   - updates: { status: "committed" }
+
+4. **Commit the fix and state together** with a descriptive message:
    ```bash
    git add -A
    git commit -m "Fix <description of what was fixed> (task-id)"
    ```
-
-4. **Mark task as committed again**:
-   - Use `dshearer.smidja/updateTask` to set status back to "committed"
 
 5. **Ask if they want to review the fix**:
    ```

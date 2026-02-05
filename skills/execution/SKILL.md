@@ -62,12 +62,24 @@ Make the code changes needed for this task:
 
 **Keep changes focused on this task only.** Don't mix concerns or implement multiple tasks at once.
 
-### Step 4: Commit Changes
+### Step 4: Mark Task Committed
 
-Once implementation is complete, commit the changes:
+Once implementation is complete, update the task status BEFORE committing:
+
+```
+Use dshearer.smidja/updateTask:
+- taskId: the task ID
+- updates: { status: "committed" }
+```
+
+This updates the `.beads/issues.jsonl` file, marking the task as complete.
+
+### Step 5: Commit Changes and State Together
+
+Now commit both the code changes AND the Beads state update in one atomic commit:
 
 ```bash
-# Stage all changes
+# Stage all changes (code + .beads/issues.jsonl)
 git add -A
 
 # Commit with task ID in message
@@ -81,19 +93,11 @@ Examples:
 - `"Update Button component to use theme colors (bd-abc3)"`
 - `"Add user authentication API integration (bd-xyz7)"`
 
-**Critical**: Always include the task ID in parentheses at the end. This enables finding commits later with `git log --grep="task-id"`.
-
-### Step 5: Mark Task Committed
-
-After committing, update the task status:
-
-```
-Use dshearer.smidja/updateTask:
-- taskId: the task ID
-- updates: { status: "committed" }
-```
-
-This marks the task as complete and ready for review.
+**Critical**: 
+- Always update status to "committed" BEFORE running git commit
+- This ensures the commit includes both code changes and state transition
+- Always include the task ID in parentheses at the end
+- This enables finding commits later with `git log --grep="task-id"`
 
 ### Step 6: Notify User
 
@@ -176,10 +180,9 @@ You: [Check tasks with listTasks()]
 
 "Changes complete. Committing..."
 
+[Update status to committed]
 [Run: git add -A]
 [Run: git commit -m "Add ThemeContext provider (bd-abc1)"]
-
-[Update status to committed]
 
 "✅ Task bd-abc1 complete: Add ThemeContext provider
 

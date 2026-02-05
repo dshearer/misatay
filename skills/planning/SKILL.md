@@ -98,9 +98,21 @@ Once the user approves, create tasks using the tools:
 - Don't add dependency if tasks are **independent** and can be done in any order
 - Don't over-constrain - allow parallelization when possible
 
-### Step 5: Confirm Completion
+### Step 5: Commit Planning State
 
-After creating all tasks:
+After creating all tasks, commit the Beads state to Git:
+
+```bash
+# Commit the task state created during planning
+git add -A
+git commit -m "Plan feature: <feature name>"
+```
+
+This creates a commit containing only the `.beads/issues.jsonl` changes from planning.
+
+### Step 6: Confirm Completion
+
+After committing the plan:
 
 1. List the created tasks to confirm they're in the system using `dshearer.smidja/listTasks`
 
@@ -125,6 +137,7 @@ Planning is complete when:
 ✅ Dependencies are established where needed  
 ✅ User has approved the breakdown  
 ✅ Task list has been confirmed via listTasks()  
+✅ Planning state has been committed to Git
 
 After planning is complete:
 - Switch to execution skill to start implementing tasks
