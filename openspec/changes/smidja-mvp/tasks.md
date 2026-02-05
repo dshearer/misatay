@@ -37,61 +37,81 @@
 - [x] 5.3 Command creates .github/agents/ directory if needed
 - [x] 5.4 Command shows success message with instructions to test
 
-## 6. Planning Skill
+## 6. Task Status View
 
-- [ ] 6.1 Create skills/planning/SKILL.md
-- [ ] 6.2 Define planning dialogue instructions
-- [ ] 6.3 Add task breakdown guidance
-- [ ] 6.4 Add task creation instructions using createTask/addDependency tools
-- [ ] 6.5 Define planning completion criteria
+- [ ] 6.1 Create VS Code command "Smidja: Show Task Status"
+- [ ] 6.2 Create webview panel with HTML/CSS/JS for modern UI
+- [ ] 6.3 Implement task list rendering with status indicators
+- [ ] 6.4 Add visual task dependency display (tree or indented structure)
+- [ ] 6.5 Implement real-time view updates when tasks change
+- [ ] 6.6 Add click handlers for task details modal/panel
+- [ ] 6.7 Add context menu actions (view commits, review task, mark reviewed)
+- [ ] 6.8 Use VS Code CSS variables for theme compatibility
+- [ ] 6.9 Design welcoming empty state with quick start guidance
+- [ ] 6.10 Implement startingTask tool (dshearer.smidja/startingTask)
+- [ ] 6.11 Implement workingOnTask tool (dshearer.smidja/workingOnTask)
+- [ ] 6.12 Add spinner animation for tasks with active work
+- [ ] 6.13 Implement 7-minute heartbeat timeout logic
+- [ ] 6.14 Register heartbeat tools in extension activation
+- [ ] 6.15 Apply modern design: animations, typography, spacing, colors
+- [ ] 6.16 Test view with different VS Code themes (light/dark/high-contrast)
+- [ ] 6.17 Test view responsiveness at different panel widths
 
-## 7. Execution Skill
+## 7. Planning Skill
 
-- [ ] 7.1 Create skills/execution/SKILL.md
-- [ ] 7.2 Add branch creation instructions
-- [ ] 7.3 Define task execution loop (ready → in_progress → edit → commit → committed)
-- [ ] 7.4 Add commit message format: "Title (task-id)"
-- [ ] 7.5 Define task completion and transition logic
+- [ ] 7.1 Create skills/planning/SKILL.md
+- [ ] 7.2 Define planning dialogue instructions
+- [ ] 7.3 Add task breakdown guidance
+- [ ] 7.4 Add task creation instructions using createTask/addDependency tools
+- [ ] 7.5 Define planning completion criteria
 
-## 8. Review Skill
+## 8. Execution Skill
 
-- [ ] 8.1 Create skills/review/SKILL.md
-- [ ] 8.2 Add instructions for finding commits (git log --grep)
-- [ ] 8.3 Add instructions for finding affected files
-- [ ] 8.4 Define file-by-file review flow using Beatrice navigation tools
-- [ ] 8.5 Add approval/rejection handling (status updates)
-- [ ] 8.6 Add fix commit instructions (append, don't rebase)
+- [ ] 8.1 Create skills/execution/SKILL.md
+- [ ] 8.2 Add branch creation instructions
+- [ ] 8.3 Define task execution loop (ready → in_progress → edit → commit → committed)
+- [ ] 8.4 Add commit message format: "Title (task-id)"
+- [ ] 8.5 Define task completion and transition logic
 
-## 9. Git Operations Skill
+## 9. Review Skill
 
-- [ ] 9.1 Create skills/git-ops/SKILL.md
-- [ ] 9.2 Define branch creation: git checkout -b feature/...
-- [ ] 9.3 Define commit workflow: git add -A, git commit -m "..."
-- [ ] 9.4 Add git log commands for finding commits
-- [ ] 9.5 Add safety checks (don't commit when review fails, etc.)
+- [ ] 9.1 Create skills/review/SKILL.md
+- [ ] 9.2 Add instructions for finding commits (git log --grep)
+- [ ] 9.3 Add instructions for finding affected files
+- [ ] 9.4 Define file-by-file review flow using Beatrice navigation tools
+- [ ] 9.5 Add approval/rejection handling (status updates)
+- [ ] 9.6 Add fix commit instructions (append, don't rebase)
 
-## 10. Installation Command (Full)
+## 10. Git Operations Skill
 
-- [ ] 10.1 Extend "Smidja: Install Agent" command to copy skill files
-- [ ] 10.2 Command copies all skill files to .github/skills/
-- [ ] 10.3 Command creates full directory structure if needed
-- [ ] 10.4 Command shows success message with next steps
+- [ ] 10.1 Create skills/git-ops/SKILL.md
+- [ ] 10.2 Define branch creation: git checkout -b feature/...
+- [ ] 10.3 Define commit workflow: git add -A, git commit -m "..."
+- [ ] 10.4 Add git log commands for finding commits
+- [ ] 10.5 Add safety checks (don't commit when review fails, etc.)
 
-## 11. Documentation
+## 11. Installation Command (Full)
 
-- [ ] 11.1 Write README with quick start
-- [ ] 11.2 Document Beatrice extension requirement
-- [ ] 11.3 Document task backend setup (default: Beads)
-- [ ] 11.4 Document GitHub Copilot requirements
-- [ ] 11.5 Add workflow examples
-- [ ] 11.6 Add troubleshooting guide
+- [ ] 11.1 Extend "Smidja: Install Agent" command to copy skill files
+- [ ] 11.2 Command copies all skill files to .github/skills/
+- [ ] 11.3 Command creates full directory structure if needed
+- [ ] 11.4 Command shows success message with next steps
 
-## 12. Testing & Validation
+## 12. Documentation
 
-- [ ] 12.1 Test planning dialogue flow
-- [ ] 12.2 Test task execution creates correct commits
-- [ ] 12.3 Test review flow with approvals
-- [ ] 12.4 Test review flow with change requests
-- [ ] 12.5 Validate task backend integration (Beads)
-- [ ] 12.6 Test Beatrice navigation tools integration
-- [ ] 12.6 Test Beatrice navigation tools integration
+- [ ] 12.1 Write README with quick start
+- [ ] 12.2 Document Beatrice extension requirement
+- [ ] 12.3 Document task backend setup (default: Beads)
+- [ ] 12.4 Document GitHub Copilot requirements
+- [ ] 12.5 Add workflow examples
+- [ ] 12.6 Add troubleshooting guide
+
+## 13. Testing & Validation
+
+- [ ] 13.1 Test planning dialogue flow
+- [ ] 13.2 Test task execution creates correct commits
+- [ ] 13.3 Test review flow with approvals
+- [ ] 13.4 Test review flow with change requests
+- [ ] 13.5 Validate task backend integration (Beads)
+- [ ] 13.6 Test Beatrice navigation tools integration
+- [ ] 13.7 Test task status view updates and interactions
