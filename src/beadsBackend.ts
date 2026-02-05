@@ -93,8 +93,7 @@ export class BeadsBackend implements TaskBackend {
 				id,
 				title,
 				description,
-				status,
-				branch
+				status
 			};
 		} catch (error: any) {
 			throw new Error(`Failed to create task with Beads: ${error.message}`);
@@ -103,30 +102,6 @@ export class BeadsBackend implements TaskBackend {
 
 	async updateTask(id: string, updates: Partial<Omit<Task, 'id'>>): Promise<Task> {
 		try {
-			// Handle branch updates separately since we need to manage labels
-			if (updates.branch !== undefined) {
-				// First, get current task to find existing branch label
-				const { stdout: currentData } = await execFileAsync('bd', ['--json', 'show', id], {
-					cwd: this.workspaceRoot
-				});
-				const current = JSON.parse(currentData)[0]; // bd show returns an array
-				const currentBranchLabel = current.labels?.find((l: string) => l.startsWith('branch:'));
-				
-				// Remove old branch label if exists
-				if (currentBranchLabel) {
-					await execFileAsync('bd', ['label', 'remove', id, currentBranchLabel], {
-						cwd: this.workspaceRoot
-					});
-				}
-				
-				// Add new branch label if branch is not empty
-				if (updates.branch) {
-					await execFileAsync('bd', ['label', 'add', id, `branch:${updates.branch}`], {
-						cwd: this.workspaceRoot
-					});
-				}
-			}
-
 			// Handle status updates with label management
 			if (updates.status !== undefined) {
 				// Get current task to manage labels
@@ -181,9 +156,6 @@ export class BeadsBackend implements TaskBackend {
 
 			const taskDataArray = JSON.parse(stdout);
 			const taskData = taskDataArray[0]; // bd show returns an array
-			// Extract branch from labels
-			const branchLabel = taskData.labels?.find((l: string) => l.startsWith('branch:'));
-			const branch = branchLabel ? branchLabel.substring('branch:'.length) : undefined;
 			// Extract dependency IDs from dependency objects
 			const dependencies = taskData.dependencies?.map((dep: any) => dep.id);
 			
@@ -192,7 +164,6 @@ export class BeadsBackend implements TaskBackend {
 				title: taskData.title,
 				description: taskData.description,
 				status: this.fromBeadsStatus(taskData.status, taskData.labels),
-				branch,
 				dependencies
 			};
 		} catch (error: any) {
@@ -200,7 +171,7 @@ export class BeadsBackend implements TaskBackend {
 		}
 	}
 
-	async listTasks(filters?: { status?: TaskStatus; branch?: string }): Promise<Task[]> {
+	async listTasks(filters?: { status?: TaskStatus }): Promise<Task[]> {
 		try {
 			const args: string[] = ['--json', 'list'];
 
@@ -215,11 +186,6 @@ export class BeadsBackend implements TaskBackend {
 				if (label !== undefined) {
 					labels.push(label);
 				}
-			}
-
-			// Filter by branch label if specified
-			if (filters?.branch) {
-				labels.push(`branch:${filters.branch}`);
 			}
 
 			if (labels.length > 0) {
@@ -252,9 +218,6 @@ export class BeadsBackend implements TaskBackend {
 					t.dependencies = detailed.dependencies;
 				}
 				
-				// Extract branch from labels
-				const branchLabel = t.labels?.find((l: string) => l.startsWith('branch:'));
-				const branch = branchLabel ? branchLabel.substring('branch:'.length) : undefined;
 				// Extract dependency IDs from dependency objects
 				const dependencies = t.dependencies?.map((dep: any) => dep.id);
 				
@@ -263,7 +226,6 @@ export class BeadsBackend implements TaskBackend {
 					title: t.title,
 					description: t.description,
 					status: this.fromBeadsStatus(t.status, t.labels),
-					branch,
 					dependencies
 				};
 			}));

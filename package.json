@@ -65,7 +65,7 @@
         "name": "smidja_updateTask",
         "displayName": "Update Task",
         "toolReferenceName": "updateTask",
-        "modelDescription": "Updates fields of an existing task by ID. Can update title, description, status, or branch.",
+        "modelDescription": "Updates fields of an existing task by ID. Can update title, description, or status.",
         "userDescription": "Update an existing task",
         "canBeReferencedInPrompt": true,
         "inputSchema": {
@@ -95,10 +95,6 @@
                     "reviewed"
                   ],
                   "description": "New status"
-                },
-                "branch": {
-                  "type": "string",
-                  "description": "Git branch associated with this task"
                 }
               }
             }
@@ -113,7 +109,7 @@
         "name": "smidja_listTasks",
         "displayName": "List Tasks",
         "toolReferenceName": "listTasks",
-        "modelDescription": "Lists all tasks, optionally filtered by status or branch. Returns array of tasks.",
+        "modelDescription": "Lists all tasks, optionally filtered by status. Returns array of tasks.",
         "userDescription": "List tasks from the task backend",
         "canBeReferencedInPrompt": true,
         "inputSchema": {
@@ -128,10 +124,6 @@
                 "reviewed"
               ],
               "description": "Filter by status"
-            },
-            "branch": {
-              "type": "string",
-              "description": "Filter by git branch"
             }
           }
         }

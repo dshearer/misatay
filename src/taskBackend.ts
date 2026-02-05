@@ -13,7 +13,6 @@ export interface Task {
 	title: string;
 	description: string;
 	status: TaskStatus;
-	branch?: string;
 	dependencies?: string[];
 }
 
@@ -24,7 +23,7 @@ export interface TaskBackend {
 	/**
 	 * Create a new task
 	 */
-	createTask(title: string, description: string, status?: TaskStatus, branch?: string): Promise<Task>;
+	createTask(title: string, description: string, status?: TaskStatus): Promise<Task>;
 
 	/**
 	 * Update an existing task
@@ -34,7 +33,7 @@ export interface TaskBackend {
 	/**
 	 * List tasks, optionally filtered
 	 */
-	listTasks(filters?: { status?: TaskStatus; branch?: string }): Promise<Task[]>;
+	listTasks(filters?: { status?: TaskStatus }): Promise<Task[]>;
 
 	/**
 	 * Add a dependency relationship (childId depends on parentId)

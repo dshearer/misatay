@@ -65,7 +65,7 @@ export function registerTaskTools(context: vscode.ExtensionContext, backend: Tas
 	// Register listTasks tool
 	const listTasksTool = vscode.lm.registerTool('smidja_listTasks', {
 		async invoke(options, token) {
-			const filters = options.input as { status?: TaskStatus; branch?: string } | undefined;
+			const filters = options.input as { status?: TaskStatus } | undefined;
 
 			try {
 				const tasks = await backend.listTasks(filters);

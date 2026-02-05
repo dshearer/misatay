@@ -165,32 +165,6 @@ test('listTasks filters blocked status correctly', async () => {
 		assert.ok(tasks.every(t => t.status === 'blocked'));
 	});
 
-test('listTasks filters by branch', async () => {
-		const task1 = await backend.createTask('Task 1', 'Desc 1', 'ready', 'feature/test');
-		const task2 = await backend.createTask('Task 2', 'Desc 2', 'ready', 'feature/test');
-		const task3 = await backend.createTask('Task 3', 'Desc 3', 'ready', 'feature/other');
-		
-		const tasks = await backend.listTasks({ branch: 'feature/test' });
-		assert.strictEqual(tasks.length, 2);
-		assert.ok(tasks.every(t => t.branch === 'feature/test'));
-	});
-
-test('updateTask can update branch', async () => {
-		const task = await backend.createTask('Task', 'Desc', 'ready', 'feature/old');
-		assert.strictEqual(task.branch, 'feature/old');
-		
-		const updated = await backend.updateTask(task.id, { branch: 'feature/new' });
-		assert.strictEqual(updated.branch, 'feature/new');
-	});
-
-test('updateTask can clear branch', async () => {
-		const task = await backend.createTask('Task', 'Desc', 'ready', 'feature/test');
-		assert.strictEqual(task.branch, 'feature/test');
-		
-		const updated = await backend.updateTask(task.id, { branch: '' });
-		assert.strictEqual(updated.branch, undefined);
-	});
-
 test('listTasks returns empty array when no tasks', async () => {
 		const tasks = await backend.listTasks();
 		assert.strictEqual(tasks.length, 0);

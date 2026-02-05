@@ -121,16 +121,6 @@ export class TaskStatusView {
 	 * Render a single task card
 	 */
 	private renderTask(task: Task): string {
-		// Build branch HTML if present
-		const branchHtml = task.branch ? `
-			<div class="task-meta">
-				<div class="task-meta-item">
-					<span>🌿</span>
-					<span>${this.escapeHtml(task.branch)}</span>
-				</div>
-			</div>
-		` : '';
-		
 		// Build dependencies HTML if present
 		const dependenciesHtml = task.dependencies && task.dependencies.length > 0 ? `
 			<div class="dependencies">
@@ -150,7 +140,6 @@ export class TaskStatusView {
 			.replace('{{TASK_TITLE}}', this.escapeHtml(task.title))
 			.replace('{{STATUS_LABEL}}', task.status.replace('_', ' '))
 			.replace('{{TASK_DESCRIPTION}}', this.escapeHtml(task.description))
-			.replace('{{BRANCH_HTML}}', branchHtml)
 			.replace('{{DEPENDENCIES_HTML}}', dependenciesHtml);
 	}
 

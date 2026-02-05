@@ -63,10 +63,6 @@ The listTasks tool SHALL support filtering tasks by status and branch.
 - **WHEN** agent calls listTasks({status: "ready"})
 - **THEN** tool returns only tasks with "ready" status
 
-#### Scenario: Filtering by branch
-- **WHEN** agent calls listTasks({branch: "feature/dark-mode"})
-- **THEN** tool returns only tasks associated with that branch
-
 ### Requirement: addDependency establishes task ordering
 The addDependency tool SHALL record that one task depends on another.
 
