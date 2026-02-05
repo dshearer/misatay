@@ -6,7 +6,7 @@ import { TaskBackend, Task, TaskStatus } from './taskBackend';
  */
 export function registerTaskTools(context: vscode.ExtensionContext, backend: TaskBackend) {
 	// Register createTask tool
-	const createTaskTool = vscode.lm.registerTool('smidja_createTask', {
+	const createTaskTool = vscode.lm.registerTool('misetay_createTask', {
 		async invoke(options, token) {
 			const { title, description, status } = options.input as { 
 				title: string; 
@@ -35,7 +35,7 @@ export function registerTaskTools(context: vscode.ExtensionContext, backend: Tas
 	});
 
 	// Register updateTask tool
-	const updateTaskTool = vscode.lm.registerTool('smidja_updateTask', {
+	const updateTaskTool = vscode.lm.registerTool('misetay_updateTask', {
 		async invoke(options, token) {
 			const { id, updates } = options.input as { 
 				id: string; 
@@ -63,7 +63,7 @@ export function registerTaskTools(context: vscode.ExtensionContext, backend: Tas
 	});
 
 	// Register listTasks tool
-	const listTasksTool = vscode.lm.registerTool('smidja_listTasks', {
+	const listTasksTool = vscode.lm.registerTool('misetay_listTasks', {
 		async invoke(options, token) {
 			const filters = options.input as { status?: TaskStatus } | undefined;
 
@@ -87,7 +87,7 @@ export function registerTaskTools(context: vscode.ExtensionContext, backend: Tas
 	});
 
 	// Register addDependency tool
-	const addDependencyTool = vscode.lm.registerTool('smidja_addDependency', {
+	const addDependencyTool = vscode.lm.registerTool('misetay_addDependency', {
 		async invoke(options, token) {
 			const { childId, parentId } = options.input as { 
 				childId: string; 
@@ -115,12 +115,12 @@ export function registerTaskTools(context: vscode.ExtensionContext, backend: Tas
 	});
 
 	context.subscriptions.push(createTaskTool, updateTaskTool, listTasksTool, addDependencyTool);
-	console.log('Smidja: Registered 4 task management tools');
+	console.log('Misetay: Registered 4 task management tools');
 	
 	// List all available tools to verify registration
 	setTimeout(() => {
 		const toolNames = vscode.lm.tools.map(t => t.name);
 		console.log('All available LM tools:', toolNames);
-		console.log('Smidja tools found:', toolNames.filter(n => n.startsWith('smidja_')));
+		console.log('Misetay tools found:', toolNames.filter(n => n.startsWith('misetay_')));
 	}, 1000);
 }

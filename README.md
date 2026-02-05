@@ -1,8 +1,8 @@
-# Smidja - AI Agent Tool that Keeps You in the Loop
+# Misetay - AI Agent Tool that Keeps You in the Loop
 
-When you build software with Smidja, you are __involved__ and __in charge__. 
+When you build software with Misetay, you are __involved__ and __in charge__. 
 
-When Smidja says "All done!", you actually believe it! You're ready to:
+When Misetay says "All done!", you actually believe it! You're ready to:
 - __Slam that merge button__, or
 - Pester your colleages for PR approvals without shame, or
 - Deploy, then close your laptop and have a drink

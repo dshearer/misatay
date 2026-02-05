@@ -3,13 +3,15 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Smidja Tasks</title>
+	<title>Misetay Tasks</title>
 	<style>
 		:root {
 			--status-ready: var(--vscode-charts-blue);
 			--status-in-progress: var(--vscode-charts-yellow);
-
-
+			--status-committed: var(--vscode-charts-green);
+			--status-reviewed: var(--vscode-charts-purple);
+		}
+	
 		* {
 			margin: 0;
 			padding: 0;
@@ -182,7 +184,7 @@
 	</style>
 </head>
 <body>
-	<h1>📋 Smidja Tasks</h1>
+	<h1>📋 Misetay Tasks</h1>
 	
 	{{TASKS_CONTENT}}
 

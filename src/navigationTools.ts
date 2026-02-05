@@ -7,7 +7,7 @@ import * as path from 'path';
 export function registerNavigationTools(context: vscode.ExtensionContext) {
 	
 	// Register openFile tool
-	const openFileTool = vscode.lm.registerTool('smidja_openFile', {
+	const openFileTool = vscode.lm.registerTool('misetay_openFile', {
 		async invoke(options, token) {
 			const { filePath: filePathInput, line } = options.input as { filePath: string; line?: number };
 
@@ -58,7 +58,7 @@ export function registerNavigationTools(context: vscode.ExtensionContext) {
 	});
 
 	// Register highlightLines tool
-	const highlightLinesTool = vscode.lm.registerTool('smidja_highlightLines', {
+	const highlightLinesTool = vscode.lm.registerTool('misetay_highlightLines', {
 		async invoke(options, token) {
 			const { startLine, endLine } = options.input as { startLine: number; endLine: number };
 
@@ -98,7 +98,7 @@ export function registerNavigationTools(context: vscode.ExtensionContext) {
 	});
 
 	// Register navigateToLine tool
-	const navigateToLineTool = vscode.lm.registerTool('smidja_navigateToLine', {
+	const navigateToLineTool = vscode.lm.registerTool('misetay_navigateToLine', {
 		async invoke(options, token) {
 			const { line } = options.input as { line: number };
 
@@ -137,5 +137,5 @@ export function registerNavigationTools(context: vscode.ExtensionContext) {
 	});
 
 	context.subscriptions.push(openFileTool, highlightLinesTool, navigateToLineTool);
-	console.log('Smidja: Registered 3 navigation tools');
+	console.log('Misetay: Registered 3 navigation tools');
 }

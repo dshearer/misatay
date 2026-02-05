@@ -1,7 +1,7 @@
 import * as vscode from 'vscode';
 
 /**
- * Task status values (Smidja workflow statuses)
+ * Task status values (Misetay workflow statuses)
  */
 export type TaskStatus = 'ready' | 'in_progress' | 'committed' | 'reviewed';
 

@@ -1,5 +1,5 @@
 ---
-name: smidja-review
+name: misetay-review
 description: Guided code review flow with file navigation and approval handling
 ---
 
@@ -52,16 +52,16 @@ For each affected file, guide the user through the changes using the navigation 
 
 **For each file:**
 
-1. **Open the file** at current HEAD using `dshearer.smidja/openFile`:
+1. **Open the file** at current HEAD using `dshearer.misetay/openFile`:
    - filePath: path to the file (relative to workspace root)
    - line: (optional) line number to start at
 
-2. **Highlight relevant sections** using `dshearer.smidja/highlightLines`:
+2. **Highlight relevant sections** using `dshearer.misetay/highlightLines`:
    - startLine: first line of the changed code
    - endLine: last line of the changed code
    - Use this to draw attention to specific changes
 
-3. **Center code in viewport** using `dshearer.smidja/navigateToLine`:
+3. **Center code in viewport** using `dshearer.misetay/navigateToLine`:
    - line: the line number to center
    - Use this to ensure important code is visible
 
@@ -80,8 +80,8 @@ For each affected file, guide the user through the changes using the navigation 
 ```
 Let me show you what changed in src/components/Button.tsx...
 
-[Opens file with dshearer.smidja/openFile]
-[Highlights lines 45-67 with dshearer.smidja/highlightLines]
+[Opens file with dshearer.misetay/openFile]
+[Highlights lines 45-67 with dshearer.misetay/highlightLines]
 
 I've updated the Button component to use theme colors from the ThemeContext. 
 The main change is on lines 45-67 where the button now reads from the 
@@ -117,7 +117,7 @@ If user says something like:
 
 **Then:**
 
-1. **Mark task as reviewed** using `dshearer.smidja/updateTask`:
+1. **Mark task as reviewed** using `dshearer.misetay/updateTask`:
    - taskId: the task ID
    - updates: { status: "reviewed" }
 
@@ -132,7 +132,7 @@ If user requests modifications or points out issues:
 
 **Then:**
 
-1. **Update task status to in_progress** using `dshearer.smidja/updateTask`:
+1. **Update task status to in_progress** using `dshearer.misetay/updateTask`:
    - taskId: the task ID
    - updates: { status: "in_progress" }
 
@@ -140,7 +140,7 @@ If user requests modifications or points out issues:
    - Address the user's feedback
    - Make focused changes only
 
-3. **Mark task as committed** using `dshearer.smidja/updateTask`:
+3. **Mark task as committed** using `dshearer.misetay/updateTask`:
    - taskId: the task ID
    - updates: { status: "committed" }
 
@@ -189,10 +189,10 @@ All three commits are part of task bd-xyz7. Each commit moves the task forward.
 
 ### Use Navigation Tools
 
-Always use the Smidja navigation tools:
-- `dshearer.smidja/openFile` - Opens a file
-- `dshearer.smidja/highlightLines` - Highlights a range of lines
-- `dshearer.smidja/navigateToLine` - Centers a line in the viewport
+Always use the Misetay navigation tools:
+- `dshearer.misetay/openFile` - Opens a file
+- `dshearer.misetay/highlightLines` - Highlights a range of lines
+- `dshearer.misetay/navigateToLine` - Centers a line in the viewport
 
 ### Explain, Don't Just Show
 

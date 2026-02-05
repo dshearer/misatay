@@ -41,7 +41,7 @@ export function activate(context: vscode.ExtensionContext) {
 	// Initialize task backend (default: Beads)
 	const workspaceRoot = vscode.workspace.workspaceFolders?.[0]?.uri.fsPath;
 	if (!workspaceRoot) {
-		vscode.window.showWarningMessage('Smidja: No workspace folder open');
+		vscode.window.showWarningMessage('Misetay: No workspace folder open');
 		return;
 	}
 
@@ -60,12 +60,12 @@ export function activate(context: vscode.ExtensionContext) {
 	registerNavigationTools(context);
 
 	// Register Show Task Status command
-	const showTaskStatusCommand = vscode.commands.registerCommand('smidja.showTaskStatus', async () => {
+	const showTaskStatusCommand = vscode.commands.registerCommand('misetay.showTaskStatus', async () => {
 		await taskStatusView.show();
 	});
 
 	// Register Install Agent command
-	const installAgentCommand = vscode.commands.registerCommand('smidja.installAgent', async () => {
+	const installAgentCommand = vscode.commands.registerCommand('misetay.installAgent', async () => {
 		if (!workspaceRoot) {
 			vscode.window.showErrorMessage('No workspace folder is open. Please open a folder first.');
 			return;
@@ -77,12 +77,12 @@ export function activate(context: vscode.ExtensionContext) {
 			fs.mkdirSync(githubAgentsDir, { recursive: true });
 		}
 
-		// Copy agents/smidja.agent.md to .github/agents/smidja.agent.md
-		const sourceAgentFile = path.join(context.extensionPath, 'agents', 'smidja.agent.md');
-		const targetAgentFile = path.join(githubAgentsDir, 'smidja.agent.md');
+		// Copy agents/misetay.agent.md to .github/agents/misetay.agent.md
+		const sourceAgentFile = path.join(context.extensionPath, 'agents', 'misetay.agent.md');
+		const targetAgentFile = path.join(githubAgentsDir, 'misetay.agent.md');
 		
 		if (!fs.existsSync(sourceAgentFile)) {
-			vscode.window.showErrorMessage('Agent file not found in extension. Please reinstall Smidja.');
+			vscode.window.showErrorMessage('Agent file not found in extension. Please reinstall Misetay.');
 			return;
 		}
 
@@ -103,7 +103,7 @@ export function activate(context: vscode.ExtensionContext) {
 		}
 
 		vscode.window.showInformationMessage(
-			'Smidja agent and skills installed successfully! Reload VS Code to use the @smidja agent in GitHub Copilot chat.',
+			'Misetay agent and skills installed successfully! Reload VS Code to use the @misetay agent in GitHub Copilot chat.',
 			'Reload Window'
 		).then(selection => {
 			if (selection === 'Reload Window') {

@@ -5,19 +5,19 @@ The VS Code extension SHALL register custom tools for task operations.
 
 #### Scenario: createTask tool registration
 - **WHEN** extension activates
-- **THEN** extension registers dshearer.smidja/createTask tool
+- **THEN** extension registers dshearer.misetay/createTask tool
 
 #### Scenario: updateTask tool registration
 - **WHEN** extension activates
-- **THEN** extension registers dshearer.smidja/updateTask tool
+- **THEN** extension registers dshearer.misetay/updateTask tool
 
 #### Scenario: listTasks tool registration
 - **WHEN** extension activates
-- **THEN** extension registers dshearer.smidja/listTasks tool
+- **THEN** extension registers dshearer.misetay/listTasks tool
 
 #### Scenario: addDependency tool registration
 - **WHEN** extension activates
-- **THEN** extension registers dshearer.smidja/addDependency tool
+- **THEN** extension registers dshearer.misetay/addDependency tool
 
 ### Requirement: Tools delegate to pluggable backend
 The extension SHALL support multiple task backend implementations through an adapter interface.

@@ -6,22 +6,22 @@ import * as vscode from 'vscode';
 // import * as myExtension from '../../extension';
 
 suite('Extension Test Suite', () => {
-	vscode.window.showInformationMessage('Running Smidja tests...');
+	vscode.window.showInformationMessage('Running Misetay tests...');
 
 	test('Extension should be present', () => {
-		assert.ok(vscode.extensions.getExtension('dshearer.smidja'));
+		assert.ok(vscode.extensions.getExtension('dshearer.misetay'));
 	});
 
 	test('Extension should activate', async () => {
-		const ext = vscode.extensions.getExtension('dshearer.smidja');
+		const ext = vscode.extensions.getExtension('dshearer.misetay');
 		assert.ok(ext);
 		await ext.activate();
 		assert.strictEqual(ext.isActive, true);
 	});
 
-	test('At least one Smidja tool is registered', () => {
+	test('At least one Misetay tool is registered', () => {
 		const tools = vscode.lm.tools;
-		const smidjaTools = tools.filter(t => t.name.startsWith('smidja_'));
-		assert.ok(smidjaTools.length > 0, 'At least one smidja_ tool should be registered');
+		const misetayTools = tools.filter(t => t.name.startsWith('misetay_'));
+		assert.ok(misetayTools.length > 0, 'At least one misetay_ tool should be registered');
 	});
 });

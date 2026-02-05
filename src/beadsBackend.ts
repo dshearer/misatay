@@ -16,10 +16,10 @@ export class BeadsBackend implements TaskBackend {
 	}
 
 	/**
-	 * Map Smidja status to Beads status and labels
+	 * Map Misetay status to Beads status and labels
 	 */
-	private toBeadsStatusAndLabels(smidjaStatus: TaskStatus): { status: string; label?: string } {
-		switch (smidjaStatus) {
+	private toBeadsStatusAndLabels(misetayStatus: TaskStatus): { status: string; label?: string } {
+		switch (misetayStatus) {
 			case 'ready':
 				return { status: 'open' };
 			case 'in_progress':
@@ -33,7 +33,7 @@ export class BeadsBackend implements TaskBackend {
 	}
 
 	/**
-	 * Map Beads status to Smidja status (using labels to distinguish closed states)
+	 * Map Beads status to Misetay status (using labels to distinguish closed states)
 	 */
 	private fromBeadsStatus(beadsStatus: string, labels?: string[]): TaskStatus {
 		if (beadsStatus === 'closed') {

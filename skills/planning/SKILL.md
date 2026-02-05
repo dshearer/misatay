@@ -1,5 +1,5 @@
 ---
-name: smidja-planning
+name: misetay-planning
 description: Interactive planning dialogue to break down projects into reviewable tasks
 ---
 
@@ -80,13 +80,13 @@ Once the user approves, create tasks using the tools:
 
 **For each task in the approved breakdown:**
 
-1. **Create the task** using `dshearer.smidja/createTask`:
+1. **Create the task** using `dshearer.misetay/createTask`:
    - title: "Task Title"
    - description: "Detailed description of what needs to be done, why, and any relevant context"
    - status: "ready"
    - Returns: task ID (e.g., "bd-abc1")
 
-2. **Add dependencies if needed** using `dshearer.smidja/addDependency`:
+2. **Add dependencies if needed** using `dshearer.misetay/addDependency`:
    - childTaskId: The task that must wait
    - parentTaskId: The task that must be completed first
    - Only add when task B genuinely requires task A to be done first
@@ -114,7 +114,7 @@ This creates a commit containing only the `.beads/issues.jsonl` changes from pla
 
 After committing the plan:
 
-1. List the created tasks to confirm they're in the system using `dshearer.smidja/listTasks`
+1. List the created tasks to confirm they're in the system using `dshearer.misetay/listTasks`
 
 2. Present a summary to the user:
    ```

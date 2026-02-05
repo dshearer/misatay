@@ -31,8 +31,8 @@ export class TaskStatusView {
 		}
 
 		this.panel = vscode.window.createWebviewPanel(
-			'smidjaTaskStatus',
-			'Smidja Tasks',
+			'misetayTaskStatus',
+			'Misetay Tasks',
 			vscode.ViewColumn.Two,
 			{
 				enableScripts: true,
