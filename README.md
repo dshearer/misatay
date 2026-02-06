@@ -18,21 +18,21 @@ Break the project down into tasks -- with the AI's help.
 Tasks are stored outside of the AI's context (by default, in the repo using Beads) so
 that they are not lost.
 
-<img alt="Screenshot of the user asking Misetay to plan a project" src="screenshots/planning-chat.png" width="300" />
+<img alt="Screenshot of the user asking Misetay to plan a project" src="screenshots/planning-chat.png" width="400" />
 
 **Step 2: Unleash**
 
 Let the AI start work. Misetay will keep track of its progress. And don't worry about losing track of its changes
 --- Misetay knows which changes go with which tasks, and you can review them easily later.
 
-<img alt="Screenshot of the user telling Misetay to start work, and of the Task View showing all the tasks and their status" src="screenshots/task-view.png" width="600" />
+<img alt="Screenshot of the user telling Misetay to start work, and of the Task View showing all the tasks and their status" src="screenshots/task-view.png" width="750" />
 
 **Step 3: Understand**
 
 When you are ready to review some code, tell Misetay, and it will start a review session. Misetay
 walks you through the changes for a particular task, opening files and highlighting lines, and giving you a change to comment or ask questions. All at _your_ pace!
 
-<img alt="Screenshot of the user doing a code-review with Misetay" src="screenshots/review.png" width="600" />
+<img alt="Screenshot of the user doing a code-review with Misetay" src="screenshots/review.png" width="850" />
 
 **Step 4: Revise**
 
