@@ -23,10 +23,23 @@ Because: You've already reviewed the code! You were there from the begining!
 
 ## Features
 
-- **Planning Dialogue**: Break projects into reviewable tasks collaboratively with AI
+- **Planning**: Break projects into reviewable tasks collaboratively with AI
 - **Sequential Execution**: AI works through tasks one at a time, committing each separately
-- **Flexible Review**: Review tasks whenever convenient, request changes that append as new commits
+- **Flexible Review**: Review tasks whenever convenient, in whatever order, without blocking work. Moreover,
+Misetay _walks you through its changes_, at your pace.
 - **Persistent State**: Task tracking across VS Code sessions using pluggable backends
+
+## Comparison
+
+### Plain VS Code
+
+The diff-based review experience provided in VS Code is _excellent_ --- but it doesn't scale to multi-stage projects.
+If, for example, you tell Copilot "Go make me a Minecraft" (and you've pre-approved all the tools it needs), then let it run
+for an hour, you'll come back to a pile of new code that you'll never want to review.
+
+Misetay, in contrast, helps you break the project into tasks. You can then tell it to go to work, and it will work on those
+tasks while remembering what changes belong to what tasks (using Git, of course). When you come back, you can review the completed
+tasks one by one.
 
 ## Requirements
 
@@ -39,57 +52,3 @@ Because: You've already reviewed the code! You were there from the begining!
 - **Task Backend** (default: [Beads](https://beads.dev))
   - Install Beads CLI: `brew install beads` (or via npm/go)
   - Alternative backends: Linear, GitHub Issues, JIRA, etc.
-
-## Extension Settings
-
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
-
-For example:
-
-This extension contributes the following settings:
-
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
-
-## Known Issues
-
-Calling out known issues can help limit users opening duplicate issues against your extension.
-
-## Release Notes
-
-Users appreciate release notes as you update your extension.
-
-### 1.0.0
-
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
-
----
-
-## Following extension guidelines
-
-Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
-
-* [Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
-
-## Working with Markdown
-
-You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux).
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux).
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets.
-
-## For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
