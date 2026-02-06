@@ -99,8 +99,6 @@ Sadly, we don't have this yet. But perhaps in the near future?
 
 - **GitHub Copilot**: Provides the AI agent and code generation capabilities
 
-### Required Tools
+### Task Backend
 
-- **Task Backend** (default: [Beads](https://beads.dev))
-  - Install Beads CLI: `brew install beads` (or via npm/go)
-  - Alternative backends: Linear, GitHub Issues, JIRA, etc.
+The default task backend is [Beads](https://github.com/steveyegge/beads), which is bundled with the extension. No separate installation is needed.

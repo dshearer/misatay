@@ -260,6 +260,9 @@
     "test:integ": "vscode-test",
     "test": "npm run compile && mocha out/test/beadsBackend.test.js --timeout 10000 --ui tdd"
   },
+  "dependencies": {
+    "@beads/bd": "^0.49.4"
+  },
   "devDependencies": {
     "@types/mocha": "^10.0.10",
     "@types/node": "22.x",

@@ -2,8 +2,30 @@ import * as vscode from 'vscode';
 import { TaskBackend, Task, TaskStatus, BackendInfo } from './taskBackend';
 import { execFile } from 'child_process';
 import { promisify } from 'util';
+import * as path from 'path';
+import * as fs from 'fs';
+import * as os from 'os';
 
 const execFileAsync = promisify(execFile);
+
+/**
+ * Resolve the bd binary path: prefer the bundled @beads/bd package, fall back to system PATH.
+ */
+function resolveBdPath(): string {
+	try {
+		const bdJsPath = require.resolve('@beads/bd/bin/bd.js');
+		const binaryName = os.platform() === 'win32' ? 'bd.exe' : 'bd';
+		const bundledPath = path.join(path.dirname(bdJsPath), binaryName);
+		if (fs.existsSync(bundledPath)) {
+			return bundledPath;
+		}
+	} catch {
+		// @beads/bd not installed, fall through
+	}
+	return 'bd'; // fall back to system PATH
+}
+
+const bdPath = resolveBdPath();
 
 /**
  * Backend adapter for Beads CLI
@@ -69,7 +91,7 @@ export class BeadsBackend implements TaskBackend {
 				args.push('-l', `branch:${branch}`);
 			}
 
-			const { stdout } = await execFileAsync('bd', args, {
+			const { stdout } = await execFileAsync(bdPath, args, {
 				cwd: this.workspaceRoot,
 				env: { ...process.env }
 			});
@@ -79,12 +101,12 @@ export class BeadsBackend implements TaskBackend {
 			// Update status and add appropriate label
 			const { status: beadsStatus, label } = this.toBeadsStatusAndLabels(status);
 			if (beadsStatus !== 'open') {
-				await execFileAsync('bd', ['update', id, '--status', beadsStatus], {
+				await execFileAsync(bdPath, ['update', id, '--status', beadsStatus], {
 					cwd: this.workspaceRoot
 				});
 			}
 			if (label) {
-				await execFileAsync('bd', ['label', 'add', id, label], {
+				await execFileAsync(bdPath, ['label', 'add', id, label], {
 					cwd: this.workspaceRoot
 				});
 			}
@@ -105,7 +127,7 @@ export class BeadsBackend implements TaskBackend {
 			// Handle status updates with label management
 			if (updates.status !== undefined) {
 				// Get current task to manage labels
-				const { stdout: currentData } = await execFileAsync('bd', ['--json', 'show', id], {
+				const { stdout: currentData } = await execFileAsync(bdPath, ['--json', 'show', id], {
 					cwd: this.workspaceRoot
 				});
 				const current = JSON.parse(currentData)[0]; // bd show returns an array
@@ -113,7 +135,7 @@ export class BeadsBackend implements TaskBackend {
 				// Remove old committed/reviewed labels
 				for (const label of ['committed', 'reviewed']) {
 					if (current.labels?.includes(label)) {
-						await execFileAsync('bd', ['label', 'remove', id, label], {
+						await execFileAsync(bdPath, ['label', 'remove', id, label], {
 							cwd: this.workspaceRoot
 						});
 					}
@@ -122,12 +144,12 @@ export class BeadsBackend implements TaskBackend {
 				// Add new label and update status
 				const { status: beadsStatus, label } = this.toBeadsStatusAndLabels(updates.status);
 				if (current.status !== beadsStatus) {
-					await execFileAsync('bd', ['update', id, '-s', beadsStatus], {
+					await execFileAsync(bdPath, ['update', id, '-s', beadsStatus], {
 						cwd: this.workspaceRoot
 					});
 				}
 				if (label) {
-					await execFileAsync('bd', ['label', 'add', id, label], {
+					await execFileAsync(bdPath, ['label', 'add', id, label], {
 						cwd: this.workspaceRoot
 					});
 				}
@@ -144,13 +166,13 @@ export class BeadsBackend implements TaskBackend {
 
 			// Only run update if there are non-branch/non-status updates
 			if (args.length > 2) {
-				await execFileAsync('bd', args, {
+				await execFileAsync(bdPath, args, {
 					cwd: this.workspaceRoot
 				});
 			}
 
 			// Fetch the updated task
-			const { stdout } = await execFileAsync('bd', ['--json', 'show', id], {
+			const { stdout } = await execFileAsync(bdPath, ['--json', 'show', id], {
 				cwd: this.workspaceRoot
 			});
 
@@ -195,7 +217,7 @@ export class BeadsBackend implements TaskBackend {
 				}
 			}
 
-			const { stdout } = await execFileAsync('bd', args, {
+			const { stdout } = await execFileAsync(bdPath, args, {
 				cwd: this.workspaceRoot
 			});
 
@@ -211,7 +233,7 @@ export class BeadsBackend implements TaskBackend {
 			const tasksWithDetails = await Promise.all(tasks.map(async (t: any) => {
 				// For tasks with dependencies, fetch full details
 				if (t.dependency_count > 0) {
-					const { stdout: detailStdout } = await execFileAsync('bd', ['--json', 'show', t.id], {
+					const { stdout: detailStdout } = await execFileAsync(bdPath, ['--json', 'show', t.id], {
 						cwd: this.workspaceRoot
 					});
 					const detailed = JSON.parse(detailStdout)[0];
@@ -238,7 +260,7 @@ export class BeadsBackend implements TaskBackend {
 
 	async addDependency(childId: string, parentId: string): Promise<void> {
 		try {
-			await execFileAsync('bd', ['dep', 'add', childId, parentId], {
+			await execFileAsync(bdPath, ['dep', 'add', childId, parentId], {
 				cwd: this.workspaceRoot
 			});
 		} catch (error: any) {
