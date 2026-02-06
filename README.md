@@ -9,6 +9,40 @@ When Misetay says "All done!", you actually believe it! You're ready to:
 
 Because: You've already reviewed the code! You were there from the beginning!
 
+## The Misetay Way
+
+**Step 1: Plan**
+
+Break the project down into tasks -- with the AI's help.
+
+Tasks are stored outside of the AI's context (by default, in the repo using Beads) so
+that they are not lost.
+
+<img alt="Screenshot of the user asking Misetay to plan a project" src="screenshots/planning-chat.png" width="400" />
+
+**Step 2: Unleash**
+
+Let the AI start work. Misetay will keep track of its progress. And don't worry about losing track of its changes
+--- Misetay knows which changes go with which tasks, and you can review them easily later.
+
+<img alt="Screenshot of the user telling Misetay to start work, and of the Task View showing all the tasks and their status" src="screenshots/task-view.png" width="750" />
+
+**Step 3: Understand**
+
+When you are ready to review some code, tell Misetay, and it will start a review session. Misetay
+walks you through the changes for a particular task, opening files and highlighting lines, and giving you a change to comment or ask questions. All at _your_ pace!
+
+<img alt="Screenshot of the user doing a code-review with Misetay" src="screenshots/review.png" width="850" />
+
+**Step 4: Revise**
+
+And, of course, you can ask for changes!
+- Correct problems in a task's code changes
+- Add new tasks
+- Drop existing tasks
+
+Misetay tracks all this for you.
+
 ## Manifesto
 
 To make the best use of AI, AIs and people need to work side-by-side.
@@ -21,14 +55,6 @@ To make the best use of AI, AIs and people need to work side-by-side.
 ### The Future
 
 - AI will boost productivity by **empowering human workers**, to __understand more__ and to __build more__
-
-## Features
-
-- **Planning**: Break projects into reviewable tasks collaboratively with AI
-- **Sequential Execution**: AI works through tasks one at a time, committing each to Git in order to map tasks to changes
-- **Flexible Review**: You review task changes whenever convenient, in whatever order, without blocking work. Moreover,
-Misetay _walks you through the changes_, at your pace.
-- **Persistent State**: Task tracking across VS Code sessions using pluggable backends
 
 ## Comparison
 
