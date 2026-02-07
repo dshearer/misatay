@@ -32,8 +32,12 @@
     },
     "commands": [
       {
-        "command": "misatay.installAgent",
-        "title": "Misatay: Install Agent"
+        "command": "misatay.installForCopilot",
+        "title": "Misatay: Install for Copilot"
+      },
+      {
+        "command": "misatay.installForClaudeCode",
+        "title": "Misatay: Install for Claude Code"
       },
       {
         "command": "misatay.showTaskStatus",
