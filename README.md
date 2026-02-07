@@ -10,7 +10,13 @@ When Misatay says "All done!", you actually believe it! You're ready to:
 
 Because: You've already reviewed the code! You were there from the beginning!
 
-Jump to [The Misatay Way](#the-misatay-way) to see the features.
+Features:
+- Planning
+- AI-guided code reviews
+- Task status tracking
+- AI asks for help instead of spinning on problems
+
+Jump to [The Misatay Way](#the-misatay-way) for details!
 
 (NOTE: It only works with GitHub Copilot.)
 
@@ -76,7 +82,7 @@ Now, break the project down into tasks -- with the AI's help.
 
 Tasks are stored outside of the AI's context (by default, in the repo using Beads) so they are not lost.
 
-<img alt="Screenshot of the user asking Misatay to plan a project" src="screenshots/planning-chat.png" width="400" />
+<img alt="Screenshot of the user asking Misatay to plan a project" src="screenshots/planning-chat.png" width="750" />
 
 **Step 2: Unleash**
 
@@ -92,7 +98,9 @@ Let the AI start work. Misatay will keep track of its progress. And don't worry 
 When you are ready to review some code, tell Misatay, and it will start a review session. Misatay
 walks you through the changes for a particular task, opening files and highlighting lines, and giving you a chance to comment or ask questions. All at _your_ pace!
 
-<img alt="Screenshot of the user doing a code-review with Misatay" src="screenshots/review.png" width="850" />
+<img alt="Screenshot of the user doing a code-review with Misatay" src="screenshots/review.png" width="650" />
+
+<br/>
 
 **Step 4: Revise**
 
@@ -103,14 +111,13 @@ And, of course, you can ask for changes!
 
 Misatay tracks all this for you.
 
-## Coming Soon?
+**Step ???: The AI Needs Help!**
 
-- Reverse workflow: _you_ do the coding, and the _AI_ does the reviewing
-- The AI marks tasks as "need-help" (or something) when it needs guidance from
-the user or otherwise gets stuck
-- Yolo mode: The AI plows through tasks, instead of stopping and asking what to do
-- Find ways to integration stuff like [OpenSpec](https://openspec.dev)
-- ?
+Very often, AI agents will get stuck trying to fix something and just spin — wasting tokens and money. 
+
+Not with Misatay! Misatay tells your agents to ask for help when they need it, using a special "needs help" task status to track this.
+
+<img alt="Screenshot of a task with 'needs help' status" src="screenshots/needs-help.png" width="650" />
 
 ## Comparison
 
