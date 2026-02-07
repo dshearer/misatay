@@ -3,6 +3,8 @@
 Misatay is a VS Code extension for working with AI agents. 
 When you build software with Misatay, you are __involved__ and __in charge__.
 
+(NOTE: It only works with GitHub Copilot.)
+
 When Misatay says "All done!", you actually believe it! You're ready to:
 - __Slam that merge button__, or
 - Pester your colleagues for PR approvals without shame, or
@@ -10,15 +12,13 @@ When Misatay says "All done!", you actually believe it! You're ready to:
 
 Because: You've already reviewed the code! You were there from the beginning!
 
-Features:
-- Planning
-- AI-guided code reviews
-- Task status tracking
-- AI asks for help instead of spinning on problems
+Your new dev loop:
+- Plan a feature with Misatay, then _save your plan to your repo_ → **Lose nothing when you switch AI session**
+- Let Misatay work on the plan's tasks and _commit its changes to Git_ → **Keep track of what changes go to what task**
+- AI-guided code reviews → **Misatay tells you what changed and why, in the context of a task**
+- Misatay asks for help instead of spinning on problems → **Save $$$ by wasting fewer tokens**
 
 Jump to [The Misatay Way](#the-misatay-way) for details!
-
-(NOTE: It only works with GitHub Copilot.)
 
 ## Installation
 
@@ -27,8 +27,6 @@ It's a VS Code extension. So install it from the marketplace.
 In repos where you haven't used Misatay, you have to initialize it. Open the command palette (Cmd-Shift-P) and choose "Misatay: Install Agent". This will add an agent prompt and some skills
 to your repo. (I hope to avoid this step in the future, by keep these files in the extension and
 out of your repo.)
-
-You are now ready to follow [The Misatay Way](#the-misatay-way).
 
 ## Recommended Settings
 
