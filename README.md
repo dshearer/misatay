@@ -1,5 +1,6 @@
 # Misetay - AI Agent Tool that Keeps You in the Loop
 
+Misetay is a VS Code extension for working with AI agents. 
 When you build software with Misetay, you are __involved__ and __in charge__. 
 
 When Misetay says "All done!", you actually believe it! You're ready to:
@@ -8,6 +9,10 @@ When Misetay says "All done!", you actually believe it! You're ready to:
 - Deploy, then close your laptop and have a drink
 
 Because: You've already reviewed the code! You were there from the beginning!
+
+Jump to [The Misetay Way](#the-misetay-way) to see the features.
+
+(NOTE: It only works with GitHub Copilot.)
 
 ## Project Status
 
@@ -48,7 +53,7 @@ Tasks are stored outside of the AI's context (by default, in the repo using Bead
 **Step 2: Unleash**
 
 Let the AI start work. Misetay will keep track of its progress. And don't worry about losing track of its changes
---- Misetay knows which changes go with which tasks, and you can review them easily later.
+— Misetay knows which changes go with which tasks, and you can review them easily later.
 
 <img alt="Screenshot of the user telling Misetay to start work, and of the Task View showing all the tasks and their status" src="screenshots/task-view.png" width="750" />
 
@@ -57,7 +62,7 @@ Let the AI start work. Misetay will keep track of its progress. And don't worry 
 **Step 3: Understand**
 
 When you are ready to review some code, tell Misetay, and it will start a review session. Misetay
-walks you through the changes for a particular task, opening files and highlighting lines, and giving you a change to comment or ask questions. All at _your_ pace!
+walks you through the changes for a particular task, opening files and highlighting lines, and giving you a chance to comment or ask questions. All at _your_ pace!
 
 <img alt="Screenshot of the user doing a code-review with Misetay" src="screenshots/review.png" width="850" />
 
