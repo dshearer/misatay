@@ -99,8 +99,8 @@ export function activate(context: vscode.ExtensionContext) {
 		await taskStatusView.show();
 	});
 
-	// Register Install Agent command
-	const installAgentCommand = vscode.commands.registerCommand('misatay.installAgent', async () => {
+	// Register Install for Copilot command
+	const installForCopilotCommand = vscode.commands.registerCommand('misatay.installForCopilot', async () => {
 		if (!workspaceRoot) {
 			vscode.window.showErrorMessage('No workspace folder is open. Please open a folder first.');
 			return;
@@ -138,7 +138,7 @@ export function activate(context: vscode.ExtensionContext) {
 		}
 
 		vscode.window.showInformationMessage(
-			'Misatay agent and skills installed successfully! Reload VS Code to use the @misatay agent in GitHub Copilot chat.',
+			'Misatay agent and skills installed for GitHub Copilot! Reload VS Code to use the @misatay agent in GitHub Copilot chat.',
 			'Reload Window'
 		).then(selection => {
 			if (selection === 'Reload Window') {
@@ -147,7 +147,51 @@ export function activate(context: vscode.ExtensionContext) {
 		});
 	});
 
-	context.subscriptions.push(showTaskStatusCommand, installAgentCommand);
+	// Register Install for Claude Code command
+	const installForClaudeCodeCommand = vscode.commands.registerCommand('misatay.installForClaudeCode', async () => {
+		if (!workspaceRoot) {
+			vscode.window.showErrorMessage('No workspace folder is open. Please open a folder first.');
+			return;
+		}
+
+		// Create .claude/agents/ directory if it doesn't exist
+		const claudeAgentsDir = path.join(workspaceRoot, '.claude', 'agents');
+		if (!fs.existsSync(claudeAgentsDir)) {
+			fs.mkdirSync(claudeAgentsDir, { recursive: true });
+		}
+
+		// Copy agents/Misatay.agent.md to .claude/agents/misatay.md
+		const sourceAgentFile = path.join(context.extensionPath, 'agents', 'Misatay.agent.md');
+		const targetAgentFile = path.join(claudeAgentsDir, 'misatay.md');
+		
+		if (!fs.existsSync(sourceAgentFile)) {
+			vscode.window.showErrorMessage('Agent file not found in extension. Please reinstall Misatay.');
+			return;
+		}
+
+		fs.copyFileSync(sourceAgentFile, targetAgentFile);
+
+		// Copy skills directory to .claude/skills/
+		const sourceSkillsDir = path.join(context.extensionPath, 'skills');
+		const targetSkillsDir = path.join(workspaceRoot, '.claude', 'skills');
+
+		if (fs.existsSync(sourceSkillsDir)) {
+			// Create .claude/skills/ directory if it doesn't exist
+			if (!fs.existsSync(targetSkillsDir)) {
+				fs.mkdirSync(targetSkillsDir, { recursive: true });
+			}
+
+			// Recursively copy all skill files
+			copyDirectoryRecursive(sourceSkillsDir, targetSkillsDir);
+		}
+
+		vscode.window.showInformationMessage(
+			'Misatay agent and skills installed for Claude Code! The misatay agent should now be available in Claude Code.',
+			'OK'
+		);
+	});
+
+	context.subscriptions.push(showTaskStatusCommand, installForCopilotCommand, installForClaudeCodeCommand);
 }
 
 // This method is called when your extension is deactivated

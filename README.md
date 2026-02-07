@@ -18,17 +18,23 @@ Features:
 
 Jump to [The Misatay Way](#the-misatay-way) for details!
 
-(NOTE: It only works with GitHub Copilot.)
-
 ## Installation
 
 It's a VS Code extension. So install it from the marketplace.
 
-In repos where you haven't used Misatay, you have to initialize it. Open the command palette (Cmd-Shift-P) and choose "Misatay: Install Agent". This will add an agent prompt and some skills
-to your repo. (I hope to avoid this step in the future, by keep these files in the extension and
-out of your repo.)
+In repos where you haven't used Misatay, you have to initialize it. Open the command palette (Cmd+Shift+P) and choose either:
+- **"Misatay: Install for Copilot"** if you're using GitHub Copilot, or
+- **"Misatay: Install for Claude Code"** if you're using Claude Code
+
+This will add an agent prompt and some skills to your repo. (I hope to avoid this step in the future, by keeping these files in the extension and out of your repo.)
 
 You are now ready to follow [The Misatay Way](#the-misatay-way).
+
+## Supported AI Platforms
+
+Misatay works with:
+- **GitHub Copilot** - Install with "Misatay: Install for Copilot" command
+- **Claude Code** - Install with "Misatay: Install for Claude Code" command
 
 ## Recommended Settings
 
