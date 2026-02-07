@@ -137,14 +137,10 @@ export function activate(context: vscode.ExtensionContext) {
 			copyDirectoryRecursive(sourceSkillsDir, targetSkillsDir);
 		}
 
-		vscode.window.showInformationMessage(
-			'Misatay agent and skills installed successfully! Reload VS Code to use the @misatay agent in GitHub Copilot chat.',
-			'Reload Window'
-		).then(selection => {
-			if (selection === 'Reload Window') {
-				vscode.commands.executeCommand('workbench.action.reloadWindow');
-			}
-		});
+		vscode.window.showInformationMessage('Misatay is installed in this repo! Use the Misatay agent in GitHub Copilot chat.');
+
+		// Open Copilot Chat with the Misatay agent selected
+		await vscode.commands.executeCommand('workbench.action.chat.open', { mode: 'Misatay' });
 	});
 
 	context.subscriptions.push(showTaskStatusCommand, installAgentCommand);
