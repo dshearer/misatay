@@ -9,6 +9,7 @@
 			--status-ready: var(--vscode-charts-blue);
 			--status-in-progress: var(--vscode-charts-yellow);
 			--status-committed: var(--vscode-charts-green);
+			--status-blocked: var(--vscode-charts-orange);
 			--status-reviewed: var(--vscode-charts-purple);
 		}
 	
@@ -44,6 +45,7 @@
 		.task-card.ready { border-left-color: var(--status-ready); }
 		.task-card.in_progress { border-left-color: var(--status-in-progress); }
 
+		.task-card.blocked { border-left-color: var(--status-blocked); }
 		.task-card.committed { border-left-color: var(--status-committed); }
 		.task-card.reviewed { border-left-color: var(--status-reviewed); }
 
@@ -88,11 +90,15 @@
 			background: color-mix(in srgb, var(--status-in-progress) 20%, transparent);
 			color: var(--status-in-progress);
 		}
-		.task-status.committed { 
+		.task-status.blocked {
+			background: color-mix(in srgb, var(--status-blocked) 20%, transparent);
+			color: var(--status-blocked);
+		}
+		.task-status.committed {
 			background: color-mix(in srgb, var(--status-committed) 20%, transparent);
 			color: var(--status-committed);
 		}
-		.task-status.reviewed { 
+		.task-status.reviewed {
 			background: color-mix(in srgb, var(--status-reviewed) 20%, transparent);
 			color: var(--status-reviewed);
 		}
